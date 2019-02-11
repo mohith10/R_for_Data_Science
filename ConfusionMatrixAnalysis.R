@@ -30,5 +30,19 @@
 
 #-------------------------------------------------------------------------
 #DECILE CHART (Same as Lift Chart)
+#---------------------------------------------------------------------------
+install.packages('caret')
+library(caret)
+install.packages('e1071')
+library(e1071)
+owner.df <- read.csv('D:\\Mohit\\R\\ownerExample.csv', header = TRUE)
+str(boston.df)
+confusionMatrix(ifelse(owner.df$Probability>0.5, 'owner', 'nonowner'),owner.df$Class)
+
+confusionMatrix(ifelse(owner.df$Probability>0.25,'owner','nonowner'),owner.df$Class)
+
+confusionMatrix(ifelse(owner.df$Probability>0.75,'owner','nonowner'),owner.df$Class)
+
+
 
 
