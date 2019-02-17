@@ -82,6 +82,41 @@ plot(dataframe.df$CRIM,dataframe.df$AGE)
 
 plot(dataframe.df$CRIM,dataframe.df$AGE,xlab = 'CRIME RATE', ylab = 'AGE',main='My Plot')
 
+#Using GGPLOT
+install.packages('ggplot2')
+library('ggplot2')
+
+qplot(CRIM,DIS,data=dataframe.df,geom="jitter")
+colnames(dataframe.df)
+
+#The point may represent more than one entry
+#To obtain LINE graph
+ggplot(dataframe.df,aes(x=CRIM,y=DIS),ylim=0) + geom_line() +geom_point()
+
+#Dealing with bar graphs
+newdata.df<- dataframe.df[dataframe.df$CRIM<10,1:3]
+newdata.df
+barplot(newdata.df$INDUS, main="Bar Graph", names.arg = 'INDUS')
+#Histogram
+
+?hist
+
+hist(newdata.df$CRIM,breaks=5)
+#Coloring the Graph
+colors<- rainbow(6)
+newdata.df
+barplot(newdata.df$CRIM,col='royalblue3')
+
+#Syntax QUIRCKS------------------------------
+
+#Combine
+
+combined.df<- c(dataframe.df[1:5,-1])
+combined.df
+# To find the dimension
+
+dim(dataframe.df)
+
 
 
 
